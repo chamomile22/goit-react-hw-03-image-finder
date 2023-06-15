@@ -6,12 +6,13 @@ export const ImageGallery = ({ images }) => {
   return (
     <>
       <ImageGalleryList>
-        {images.map(({ id, webformatURL, largeImageURL }) => {
+        {images.map(({ id, webformatURL, largeImageURL, tags }) => {
           return (
             <ImageGalleryItem
               key={id}
               webformatURL={webformatURL}
               largeImageURL={largeImageURL}
+              tags={tags}
             />
           );
         })}

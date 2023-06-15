@@ -22,11 +22,11 @@ export class Modal extends Component {
   };
 
   render() {
-    const { largeImg, onClose } = this.props;
+    const { largeImg, tags, onClose } = this.props;
     return createPortal(
       <Overlay onClick={onClose}>
         <ModalDiv>
-          <img src={largeImg} width="700" height="600" />
+          <img src={largeImg} alt={tags} width="700" height="600" />
         </ModalDiv>
       </Overlay>,
       modalRoot
