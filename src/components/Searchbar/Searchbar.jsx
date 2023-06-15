@@ -32,7 +32,6 @@ export class Searchbar extends Component {
     }
 
     this.props.onSubmit(input.trim());
-    this.setState({ input: '' });
   };
 
   render() {
