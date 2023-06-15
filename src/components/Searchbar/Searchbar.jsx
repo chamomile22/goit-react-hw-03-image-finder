@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { ReactComponent as SearchIcon } from '../../icons/search-icon.svg';
 // import PropTypes from 'prop-types';
@@ -13,6 +14,10 @@ import {
 export class Searchbar extends Component {
   state = {
     input: '',
+  };
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
   };
 
   handleNameChange = event => {

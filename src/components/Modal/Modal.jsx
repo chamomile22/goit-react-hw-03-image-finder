@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { Overlay, ModalDiv } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
+  static propTypes = {
+    largeImg: PropTypes.string.isRequired,
+    onClose: PropTypes.func.isRequired,
+    tags: PropTypes.string.isRequired,
+  };
+
   componentDidMount() {
     window.addEventListener('keydown', this.handleCloseEsc);
     document.documentElement.style.overflow = 'hidden';

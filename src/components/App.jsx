@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import * as API from 'services/getImages';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
