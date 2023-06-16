@@ -30,17 +30,10 @@ export class App extends Component {
             return toast.info('No images found');
           }
 
-          if (prevState.searchValue === searchValue) {
-            return this.setState(prevState => ({
-              images: [...prevState.images, ...images.hits],
-              showBtn: page < Math.ceil(images.totalHits / API.perPage),
-            }));
-          }
-
-          this.setState({ images: images.hits });
-          this.setState({
+          return this.setState(prevState => ({
+            images: [...prevState.images, ...images.hits],
             showBtn: page < Math.ceil(images.totalHits / API.perPage),
-          });
+          }));
         })
         .catch(error => this.setState({ error }))
         .finally(this.setState({ loading: false }));
@@ -48,7 +41,14 @@ export class App extends Component {
   }
 
   handleSubmit = searchValue => {
-    this.setState({ searchValue });
+    this.setState({
+      searchValue,
+      page: 1,
+      images: [],
+      showBtn: false,
+      loading: false,
+      error: null,
+    });
   };
 
   handleLoadMore = () => {
